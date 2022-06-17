@@ -1,0 +1,178 @@
+/***************************************************************/
+/**-- Home ---------------------------------********************/
+/*-------------------------------------------------------------*/
+
+.home {
+	.main-gallery {
+		> div {
+			&:not(.slick-initialized) {
+				.box-banner {
+					&:not(:first-child) {
+						display: none;
+					}
+				}
+			}
+
+			&.desktop {
+				@include mq(md, max) {
+					display: none;
+				}
+			}
+
+			&.mobile {
+				@include mq(md, min) {
+					display: none;
+				}
+			}
+		}
+
+		img {
+			width: 100%;
+		}
+
+		.slick-next,
+		.slick-prev {
+			@extend .sprite;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			font-size: 0;
+			outline: none;
+			padding: 0;
+			position: absolute;
+			top: 40%;
+			transform: scale(0.7);
+			z-index: 1;
+		}
+
+		.slick-next {
+			@extend .sprite;
+			@extend .sprite-circled-arrow-right;
+			left: auto;
+			right: 8px;
+		}
+
+		.slick-prev {
+			@extend .sprite;
+			@extend .sprite-circled-arrow-left;
+			right: auto;
+			left: 8px;
+		}
+
+		.slick-dots {
+			bottom: 20px;
+			position: absolute;
+			pointer-events: none;
+			text-align: center;
+			width: 100%;
+
+			&,
+			li {
+				align-items: center;
+				display: flex !important;
+				justify-content: center;
+			}
+
+			li {
+				display: inline-block;
+				margin: 0 4px;
+			}
+
+			button {
+				background-color: $color-black2;
+				border: none;
+				cursor: pointer;
+				height: 10px;
+				outline: none;
+				padding: 0;
+				pointer-events: all;
+				transition: all 0.15s ease-in-out;
+				width: 10px;
+			}
+
+			.slick-active {
+				button {
+					background-color: $color-pink;
+					height: 16px;
+					width: 16px;
+				}
+			}
+		}
+	}
+
+	.banner {
+		&.desktop {
+			@include mq(md, max) {
+				display: none;
+			}
+		}
+
+		&.mobile {
+			@include mq(md, min) {
+				display: none;
+			}
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.mosaico-home,
+	.mosaico-home-footer {
+		@include mq(md, max) {
+			padding: 0;
+		}
+
+		@include mq_range(md, xl) {
+			max-width: 100%;
+		}
+
+		.row {
+			@include mq(md, max) {
+				margin: 0;
+			}
+		}
+	}
+
+	.mosaico-home {
+		> .row {
+			@include mq(md, min) {
+				margin-left: 0;
+			}
+		}
+
+		.banner {
+			padding: 0 0 40px;
+
+			@include mq(md, min) {
+				padding: 0 10px;
+			}
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.banners-left {
+			@include mq(md, min) {
+				padding-left: 0px;
+				padding-right: 12px;
+			}
+		}
+
+		.banners-right {
+			padding: 0;
+
+			.banner {
+				padding-right: 0;
+
+				&:nth-child(2) {
+					@include mq(md, min) {
+						padding-left: 8px;
+					}
+				}
+			}
+		}
+	}
+}
